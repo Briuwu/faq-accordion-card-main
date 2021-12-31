@@ -1,0 +1,173 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+$kumbh-sans: 'Kumbh Sans', sans-serif;
+
+// COLORS
+$desaturated-blue: hsl(238, 29%, 16%);
+$soft-red: hsl(14, 88%, 65%);
+$soft-violet: hsl(273, 75%, 66%);
+$soft-blue: hsl(240, 73%, 65%);
+$very-dark-grayish-blue: hsl(237, 12%, 33%);
+$dark-grayish-blue: hsl(240, 6%, 50%);
+$light-grayish-blue: hsl(240, 5%, 91%);
+
+// MIXINS
+@mixin mq($size){
+  @media only screen and (min-width: $size){
+    @content;
+  }
+}
+
+$br: 780px;
+
+// RESETS
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $kumbh-sans;
+}
+
+body {
+  font-size: 62.50%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%)); 
+  padding: 1em;
+}
+
+
+// STYLES
+.container {
+  display: grid;
+  grid-template-rows: 1em 1fr;
+  grid-template-columns: 1fr;
+  background-color: white;
+  border-radius: 2.5em;
+
+  @include mq($br){
+    margin-inline: 5em;
+    min-height: 450px;
+    max-width: 850px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+  }
+}
+
+.logo {
+  grid-row: 1;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1em;
+
+  @include mq($br){
+    grid-template-columns: 1em;
+    grid-template-rows: 1fr;
+  }
+
+  &--woman {
+    background: url('../images/illustration-woman-online-mobile.svg') no-repeat;
+    width: 250px;
+    aspect-ratio: 1 / 1;
+
+    @include mq($br){
+      background: url('../images/illustration-woman-online-desktop.svg') no-repeat;
+      width: 350px;
+      background-position: right;
+      background-size: cover;
+      margin-left: 34em;
+      position: relative;
+    }
+  }
+
+  &--box {
+    display: none;
+
+    @include mq($br){
+      display: block;
+      position: absolute;
+      left: -10em;
+      bottom: 2em;
+      filter: drop-shadow(1px 8px 8px #00000060);
+      transition: transform 300ms ease;
+
+      &:hover {
+        transform: translateX(-3em);
+      }
+    }
+  }
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  padding: 10em 2em 2em;
+  font-size: 0.85rem;
+  gap: 1em;
+
+  @include mq($br){
+    padding: 2em 6em 2em 2em;
+    justify-content: center;
+  }
+
+
+  &--title {
+    text-align: center;
+    padding-bottom: 1em;
+
+    @include mq($br){
+      text-align: left;
+    }
+  }
+
+  &--question {
+    margin-right: 2em;
+    color: hsl(237, 12%, 33%);
+    padding-block: 1em;
+  }
+
+  &--answer p {
+    color: hsl(240, 6%, 50%);
+    font-size: 0.75rem;
+  }
+
+  &--answer {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  &__container {
+    
+    @include mq($br){
+      max-width: 350px;
+    }
+
+    // JAVASCRIPT
+    &.active {
+
+      .faq--answer {
+        max-height: 250px;
+      }
+
+      img {
+        transform: rotate(180deg);
+      }
+
+      .faq--question {
+        font-weight: 700;
+      }
+    }
+
+    &--questions {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

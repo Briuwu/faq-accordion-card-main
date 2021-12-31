@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+body {
+  font-size: 62.50%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#af67e9), to(#6565e7));
+  background: linear-gradient(#af67e9, #6565e7);
+  padding: 1em;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1em 1fr;
+      grid-template-rows: 1em 1fr;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  background-color: white;
+  border-radius: 2.5em;
+}
+
+@media only screen and (min-width: 780px) {
+  .container {
+    margin-inline: 5em;
+    min-height: 450px;
+    max-width: 850px;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    gap: 2em;
+  }
+}
+
+.logo {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -ms-grid-rows: 1em;
+      grid-template-rows: 1em;
+}
+
+@media only screen and (min-width: 780px) {
+  .logo {
+    -ms-grid-columns: 1em;
+        grid-template-columns: 1em;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
+}
+
+.logo--woman {
+  background: url("../images/illustration-woman-online-mobile.svg") no-repeat;
+  width: 250px;
+  aspect-ratio: 1 / 1;
+}
+
+@media only screen and (min-width: 780px) {
+  .logo--woman {
+    background: url("../images/illustration-woman-online-desktop.svg") no-repeat;
+    width: 350px;
+    background-position: right;
+    background-size: cover;
+    margin-left: 34em;
+    position: relative;
+  }
+}
+
+.logo--box {
+  display: none;
+}
+
+@media only screen and (min-width: 780px) {
+  .logo--box {
+    display: block;
+    position: absolute;
+    left: -10em;
+    bottom: 2em;
+    -webkit-filter: drop-shadow(1px 8px 8px #00000060);
+            filter: drop-shadow(1px 8px 8px #00000060);
+    -webkit-transition: -webkit-transform 300ms ease;
+    transition: -webkit-transform 300ms ease;
+    transition: transform 300ms ease;
+    transition: transform 300ms ease, -webkit-transform 300ms ease;
+  }
+  .logo--box:hover {
+    -webkit-transform: translateX(-3em);
+            transform: translateX(-3em);
+  }
+}
+
+.faq {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10em 2em 2em;
+  font-size: 0.85rem;
+  gap: 1em;
+}
+
+@media only screen and (min-width: 780px) {
+  .faq {
+    padding: 2em 6em 2em 2em;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.faq--title {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+@media only screen and (min-width: 780px) {
+  .faq--title {
+    text-align: left;
+  }
+}
+
+.faq--question {
+  margin-right: 2em;
+  color: #4a4b5e;
+  padding-block: 1em;
+}
+
+.faq--answer p {
+  color: #787887;
+  font-size: 0.75rem;
+}
+
+.faq--answer {
+  max-height: 0;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 780px) {
+  .faq__container {
+    max-width: 350px;
+  }
+}
+
+.faq__container.active .faq--answer {
+  max-height: 250px;
+}
+
+.faq__container.active img {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.faq__container.active .faq--question {
+  font-weight: 700;
+}
+
+.faq__container--questions {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=style.css.map */
